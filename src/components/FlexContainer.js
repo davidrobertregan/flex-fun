@@ -2,16 +2,9 @@
 import { useState, useEffect } from "react"
 import FlexItem from "./FlexItem"
 
-function FlexContainer() {
+function FlexContainer( { parentClassesObj } ) {
     const [images, setImages] = useState([])
-    const [parentClassesObj, setParentClassesObj] = useState({
-        justifyContent: "justify-content--flex-end",
-        flexDirection: "flex-direction--row",
-        flexWrap: "flex-wrap--wrap",
-        alignItems: "align-items--stretch",
-        alignContent: "align-content--normal"
-    })
-    const [classes, setClasses] = useState([])
+    let parentClasses
 
     const createParentClassString = () => {
         const classesArr = [] 
@@ -19,11 +12,11 @@ function FlexContainer() {
             classesArr.push(parentClassesObj[key])
         }
 
-        let classString = classesArr.toString()
-        setClasses(classString.replaceAll(',', ' '))
+        let classesStr = classesArr.toString()
+        parentClasses = classesStr.replaceAll(',', ' ')
     }
 
-    useEffect(createParentClassString, [parentClassesObj])
+    createParentClassString()
 
     // future option to grab images from a different breed, or refetch images
     const getData = () => {
@@ -38,9 +31,8 @@ function FlexContainer() {
 
     return(
         <div className="flex-container grid-item">
-            <button onClick={() => setParentClassesObj({...parentClassesObj, justifyContent: "justify-content--flex-start"})}>Flex Start</button>
             <h1>Flex Container</h1>
-            <div className={`flex-container__flex-box ${classes}`}>
+            <div className={`flex-container__flex-box ${parentClasses}`}>
                 {flexItems}
             </div>
         </div>
