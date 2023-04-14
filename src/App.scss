@@ -31,10 +31,12 @@ body {
 }
 
 .flex-container {
+  display: flex;
+  flex-direction: column;
+
   &__flex-box {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    // flex-grow: 1; not sure how to handle this at the moment
 
     &.flex-direction {
       &--row {
@@ -54,7 +56,7 @@ body {
       }
     }
 
-    &.wrap {
+    &.flex-wrap {
       &--nowrap {
         flex-wrap: nowrap;
       }
