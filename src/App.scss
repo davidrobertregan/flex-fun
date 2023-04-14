@@ -5,8 +5,8 @@ body {
 
 #root {
   display: grid;
-  grid-template-rows: 75px auto;
-  grid-template-columns: 20px 300px auto 20px;
+  grid-template-rows: 75px 20px auto 20px;
+  grid-template-columns: 20px 300px 20px auto 20px;
   height: 100%;
 }
 
@@ -15,10 +15,17 @@ body {
 
   &.header {
     grid-column-start: 1;
-    grid-column-end: 5;
+    grid-column-end: 6;
   }
 
   &.flex-options {
     grid-column-start: 2;
+    grid-row-start: 3;
+  }
+
+  &.flex-container {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 3;
   }
 }
