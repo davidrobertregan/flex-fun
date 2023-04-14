@@ -150,5 +150,18 @@ body {
     margin: 15px;
     object-fit: cover;
     width: auto;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  &__flex-item-number {
+    position: absolute;
+    color: white;
+    background-color: red;
+    text-align: center;
+    height: 20px;
+    width: 30px;
   }
 }

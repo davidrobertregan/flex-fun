@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from "react"
+import FlexItem from "./FlexItem"
 
 function FlexContainer() {
     const [images, setImages] = useState([])
@@ -33,14 +34,14 @@ function FlexContainer() {
 
     useEffect(getData, [])
 
-    const imgElements = images.map(i => <img key={i} className="flex-container__flex-item" width="100px" src={i} alt="dog"></img>)
+    const flexItems = images.map((i, idx) => <FlexItem key={i} image={i} idx={idx}></FlexItem>)
 
     return(
         <div className="flex-container grid-item">
             <button onClick={() => setParentClassesObj({...parentClassesObj, justifyContent: "justify-content--flex-start"})}>Flex Start</button>
             <h1>Flex Container</h1>
             <div className={`flex-container__flex-box ${classes}`}>
-                {imgElements}
+                {flexItems}
             </div>
         </div>
     )
