@@ -1,22 +1,28 @@
 
 import { useState, useEffect } from "react"
-// https://github.com/JedWatson/classnames
 
 function FlexContainer() {
     const [images, setImages] = useState([])
-    // use state to set flex properties... classes? styled components?
-    const [parentClasses, setParentClasses] = useState({
-        justifyContent: "flex-end",
-        flexDirection: "row",
-        flexWrap: "wrap",
-        alignItems: "stretch",
-        alignContent: "normal"
+    const [parentClassesObj, setParentClassesObj] = useState({
+        justifyContent: "justify-content--flex-end",
+        flexDirection: "flex-direction--row",
+        flexWrap: "flex-wrap--wrap",
+        alignItems: "align-items--stretch",
+        alignContent: "align-content--normal"
     })
+    const [classes, setClasses] = useState([])
 
-    const { justifyContent, flexDirection, flexWrap, alignItems, alignContent } = parentClasses
+    const createParentClassString = () => {
+        const classesArr = [] 
+        for(let key in parentClassesObj ) {
+            classesArr.push(parentClassesObj[key])
+        }
 
+        let classString = classesArr.toString()
+        setClasses(classString.replaceAll(',', ' '))
+    }
 
-    // [justify-content--center]
+    useEffect(createParentClassString, [parentClassesObj])
 
     // future option to grab images from a different breed, or refetch images
     const getData = () => {
@@ -31,9 +37,9 @@ function FlexContainer() {
 
     return(
         <div className="flex-container grid-item">
-            <button onClick={() => setParentClasses({...parentClasses, justifyContent: "flex-start"})}>Flex Start</button>
+            <button onClick={() => setParentClassesObj({...parentClassesObj, justifyContent: "justify-content--flex-start"})}>Flex Start</button>
             <h1>Flex Container</h1>
-            <div className={`flex-container__flex-box justify-content--${justifyContent}`}>
+            <div className={`flex-container__flex-box ${classes}`}>
                 {imgElements}
             </div>
         </div>
