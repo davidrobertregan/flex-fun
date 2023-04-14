@@ -16,7 +16,7 @@ function FlexContainer() {
     const imgElements = images.map(i => <img key={i} width="100px" src={i} alt="dog"></img>)
 
     return(
-        <div>
+        <div className="flex-container grid-item">
             <h1>Flex Container</h1>
             {imgElements}
         </div>
