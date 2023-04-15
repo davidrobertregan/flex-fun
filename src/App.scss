@@ -165,13 +165,23 @@ body {
     }
   }
 
-  &__flex-item-number {
+  &__flex-item-number,
+  &__flex-item-order {
     position: absolute;
     color: white;
     background-color: red;
     text-align: center;
     height: 20px;
     width: 30px;
+  }
+
+  &__flex-item-order {
+    background-color: blue;
+    top: 20px;
+
+    &.hide {
+      display: none;
+    }
   }
 }
 
