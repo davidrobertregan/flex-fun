@@ -36,7 +36,9 @@ body {
 
   &__flex-box {
     display: flex;
-    // flex-grow: 1; not sure how to handle this at the moment
+    flex-grow: 1;
+    height: 665px; /* magic num height for now so flex direction column wraps */
+    overflow: scroll;
 
     &.flex-direction {
       &--row {
@@ -149,8 +151,9 @@ body {
 
   &__flex-item {
     height: 150px;
-    margin: 15px;
+    margin: 5px;
     object-fit: cover;
+    position: relative;
     width: auto;
 
     img {
