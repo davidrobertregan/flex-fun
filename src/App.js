@@ -6,17 +6,21 @@ import Header from './components/Header'
 
 function App() {
   const [parentClassesObj, setParentClassesObj] = useState({
-    flexDirection: "flex-direction--row",
-    justifyContent: "justify-content--flex-end",
-    flexWrap: "flex-wrap--wrap",
-    alignItems: "align-items--stretch",
-    alignContent: "align-content--normal"
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    flexWrap: "wrap",
+    alignItems: "stretch",
+    alignContent: "normal"
 })
+
+  const onUpdateProperty = (e) => {
+    setParentClassesObj({...parentClassesObj, [e.target.name]: e.target.value})
+  }
 
   return (
     <>
       <Header />
-      <FlexOptions />
+      <FlexOptions onUpdateProperty={onUpdateProperty} />
       <FlexContainer parentClassesObj={parentClassesObj}/>
     </>
   );

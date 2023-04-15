@@ -8,8 +8,9 @@ function FlexContainer( { parentClassesObj } ) {
 
     const createParentClassString = () => {
         const classesArr = [] 
-        for(let key in parentClassesObj ) {
-            classesArr.push(parentClassesObj[key])
+        for(let key in parentClassesObj) {
+            const kebabKey = key.split('').map((l, idx) => l.toUpperCase() === l ? `${idx !== 0 ? '-' : ''}` + l.toLowerCase(): l).join('')
+            classesArr.push(`${kebabKey}--${parentClassesObj[key]}`)
         }
 
         let classesStr = classesArr.toString()
