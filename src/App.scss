@@ -32,8 +32,11 @@ body {
 
 .flex-container {
   display: flex;
-  align-items: center;
   flex-direction: column;
+
+  h1 {
+    text-align: center;
+  }
 
   &__flex-box {
     display: flex;
