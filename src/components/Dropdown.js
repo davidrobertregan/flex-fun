@@ -2,7 +2,7 @@
 
 function Dropdown({ property, options, onUpdateProperty }) {
     return(
-        <div>
+        <div className="dropdown-component">
             <label>{property}</label>
             <select name={property} onChange={onUpdateProperty}>
                 {options.map(o => <option>{o}</option>)}
