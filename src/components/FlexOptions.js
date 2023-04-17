@@ -6,7 +6,7 @@ function FlexOptions({ onUpdateProperty }) {
 
     const parentOptions = {
         flexDirection: ['row', 'row-reverse', 'column', 'column-reverse'],
-        flexWrap: ['nowrap', 'wrap', 'wrap-reverse'],
+        flexWrap: ['wrap', 'nowrap', 'wrap-reverse'],
         justifyContent: ['flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly'],
         alignItems: ['stretch', 'flex-start', 'flex-end', 'center', 'baseline'],
         alignContent: ['flex-start', 'flex-end', 'center', 'stretch', 'space-between', 'space-around']

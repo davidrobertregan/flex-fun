@@ -7,10 +7,10 @@ import Header from './components/Header'
 function App() {
   const [parentClassesObj, setParentClassesObj] = useState({
     flexDirection: "row",
-    justifyContent: "flex-end",
     flexWrap: "wrap",
+    justifyContent: "flex-start",
     alignItems: "stretch",
-    alignContent: "normal"
+    alignContent: "flex-start"
 })
 
   const onUpdateProperty = (e) => {
