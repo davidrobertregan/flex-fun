@@ -8,9 +8,6 @@ function FlexItem({ image, idx }) {
     const handleClick = () => {
         setOrder((order) => order - 1)
         setDisplayOrder(true)
-        setTimeout(() => {
-            setDisplayOrder(false)
-        }, 1000)
     }
 
     return(
