@@ -189,32 +189,41 @@ body {
   }
 
   &__flex-item {
+    background-color: beige;
+    border: solid 2px transparent;
+    border-radius: 10px;
+    display: flex;
     margin: 5px;
-    object-fit: cover;
     position: relative;
     width: auto;
 
+    &:hover {
+      cursor: pointer;
+      border-color: orange;
+    }
+
     &--sm {
-      height: 100px;
+      img {
+        height: 100px;
+      }
     }
 
     &--med {
-      height: 125px;
+      img {
+        height: 125px;
+      }
     }
 
     &--lg {
-      height: 150px;
+      img {
+        height: 150px;
+      }
     }
     
     img {
-      border: solid 2px transparent;
+      margin: auto;
       border-radius: 10px;
-      height: 100%;
-
-      &:hover {
-        cursor: pointer;
-        border-color: orange;
-      }
+      display: block;
     }
 
   }
@@ -246,17 +255,25 @@ body {
 .flex-options {
   background-color: lightblue;
   border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  row-gap: 15px;
 
-  label {
-    display: block;
-  }
+  .dropdown-component {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 
-  select {
-    display: block;
-    margin-top: 5px;
+    .dropdown-component__dropdown {
+      margin: auto;
+
+      label {
+        display: block;
+        font-size: 18px;
+      }
+    
+      select {
+        display: block;
+        margin-top: 5px;
+        width: 100px;
+      }
+    }
   }
 }
