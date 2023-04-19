@@ -60,6 +60,7 @@ body {
     grid-column-start: 4;
     grid-column-end: 5;
     grid-row-start: 3;
+    overflow: scroll;
   }
 }
 
@@ -72,11 +73,11 @@ body {
   }
 
   &__flex-box {
+    border-radius: 10px;
+    background-color: lightgrey;
     display: flex;
     flex-grow: 1;
-    height: 665px; /* magic num height for now so flex direction column wraps */
     overflow: scroll;
-    max-width: 96vw;
 
     &.flex-direction {
       &--row {
@@ -188,12 +189,22 @@ body {
   }
 
   &__flex-item {
-    height: 150px;
     margin: 5px;
     object-fit: cover;
     position: relative;
     width: auto;
-    
+
+    &--sm {
+      height: 100px;
+    }
+
+    &--med {
+      height: 125px;
+    }
+
+    &--lg {
+      height: 150px;
+    }
     
     img {
       border: solid 2px transparent;
