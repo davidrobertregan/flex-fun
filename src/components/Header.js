@@ -6,8 +6,8 @@ function Header() {
             <h3>Flex Capacitor</h3>
             <div className="header__info">
                 <h4>David Regan</h4>
-                <a>LinkedIn</a>
-                <a>GitHub</a>
+                <a href="https://www.linkedin.com/in/davidrobertregan/">LinkedIn</a>
+                <a href="https://github.com/davidrobertregan">GitHub</a>
             </div>
 
         </div>

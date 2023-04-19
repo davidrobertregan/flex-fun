@@ -24,6 +24,15 @@ body {
     margin: 0;
   }
 
+  a {
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+      color: lightblue;
+    }
+  }
+
   &__info {
     align-items: center;
     display: flex;
@@ -184,13 +193,16 @@ body {
     object-fit: cover;
     position: relative;
     width: auto;
-
+    
+    
     img {
+      border: solid 2px transparent;
       border-radius: 10px;
       height: 100%;
 
       &:hover {
-        border: solid orange 2px;
+        cursor: pointer;
+        border-color: orange;
       }
     }
 
@@ -198,11 +210,13 @@ body {
 
   &__flex-item-number,
   &__flex-item-order {
-    border-radius: 10px;
+    border-radius: 8px;
     position: absolute;
     color: white;
     font-weight: bold;
     background-color: darkslategrey;
+    top: 2px;
+    left: 2px;
     text-align: center;
     height: 20px;
     width: 30px;

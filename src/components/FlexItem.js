@@ -1,5 +1,6 @@
 import { useState } from "react"
 
+// add reset button for order
 
 function FlexItem({ image, idx }) {
     const [order, setOrder] = useState(0)
