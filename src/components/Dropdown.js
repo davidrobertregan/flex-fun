@@ -10,7 +10,7 @@ function Dropdown({ property, options, onUpdateProperty }) {
     return(
         <div className="dropdown-component">
             <div className="dropdown-component__dropdown">
-                <label>{titleCaseProperty()}</label>
+                <span>{titleCaseProperty()}</span>
                 <select name={property} onChange={onUpdateProperty}>
                     {options.map(o => <option>{o}</option>)}
                 </select>

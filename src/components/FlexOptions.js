@@ -8,7 +8,7 @@ function FlexOptions({ onUpdateProperty }) {
         flexDirection: ['row', 'row-reverse', 'column', 'column-reverse'],
         flexWrap: ['wrap', 'nowrap', 'wrap-reverse'],
         justifyContent: ['flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly'],
-        alignItems: ['stretch', 'flex-start', 'flex-end', 'center', 'baseline'],
+        alignItems: ['flex-start', 'flex-end', 'center', 'stretch', 'baseline'],
         alignContent: ['flex-start', 'flex-end', 'center', 'stretch', 'space-between', 'space-around']
     }
 
@@ -21,7 +21,9 @@ function FlexOptions({ onUpdateProperty }) {
     return(
         <div className="flex-options grid-item">
             <h1>Flex Options</h1>
-            {dropdownComponents}
+            <div className="flex-options__dropdown-components">
+                {dropdownComponents}
+            </div>
         </div>
     )
 }

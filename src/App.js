@@ -9,7 +9,7 @@ function App() {
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "flex-start",
-    alignItems: "stretch",
+    alignItems: "flex-start",
     alignContent: "flex-start"
 })
 

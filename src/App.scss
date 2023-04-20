@@ -256,24 +256,38 @@ body {
   background-color: lightblue;
   border-radius: 10px;
 
-  .dropdown-component {
+  h1 {
+    text-align: center;
+  }
+
+  &__dropdown-components {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    align-content: center;
+    flex-wrap: wrap;
 
-    .dropdown-component__dropdown {
-      margin: auto;
-
-      label {
-        display: block;
-        font-size: 18px;
-      }
+    .dropdown-component {
+      display: flex;
+      margin-top: 15px;
+      flex-direction: column;
+      justify-content: flex-end;
+  
+      .dropdown-component__dropdown {
     
-      select {
-        display: block;
-        margin-top: 5px;
-        width: 100px;
+        span {
+          display: block;
+          font-size: 18px;
+        }
+      
+        select {
+          display: block;
+          font-size: 16px;
+          margin-top: 10px;
+          padding: 5px;
+          width: 150px;
+        }
       }
     }
   }
+
 }

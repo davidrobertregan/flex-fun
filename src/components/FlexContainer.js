@@ -20,6 +20,7 @@ function FlexContainer( { parentClassesObj } ) {
     createParentClassString()
 
     // future option to grab images from a different breed, or refetch images
+    // future option to delete half of the images
     const getData = () => {
         fetch("https://dog.ceo/api/breed/bulldog/images/random/18")
         .then(resp => resp.json())
