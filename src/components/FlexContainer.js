@@ -41,7 +41,7 @@ function FlexContainer( { parentClassesObj } ) {
     }
     createParentClassString()
 
-    const handleMouseDown = (e) => {
+    const startResize = (e) => {
         setDrag({
                 ...drag,
                 active: true,
@@ -60,21 +60,23 @@ function FlexContainer( { parentClassesObj } ) {
             const newH = y > e.clientY ? flexBox.current.clientHeight - yDiff : flexBox.current.clientHeight + yDiff
 
             setDrag({...drag, x: e.clientX, y: e.clientY})
-            setBoxStyles({...boxStyles, width: newW, height: newH})
+            if(newW > 300 && newH > 300) {
+                setBoxStyles({...boxStyles, width: newW, height: newH})
+            }
         }
     }
 
-    const handleMouseUp = () => {
+    const stopResize = () => {
         setDrag({...drag, active: false})
     }
 
     const flexItems = images.map((i, idx) => <FlexItem key={i} image={i} idx={idx}></FlexItem>)
 
     return(
-        <div className="flex-container grid-item" onMouseUp={handleMouseUp}>
+        <div className="flex-container grid-item" onMouseMove={handleMouseMove} onMouseUp={stopResize}>
             <h1>Flex Container</h1>
-            <div className={`flex-container__flex-box ${parentClasses}`} onMouseMove={handleMouseMove} style={boxStyles} ref={flexBox}>
-                <button className="flex-container__horizontal-drag" onMouseDown={handleMouseDown}>🖐</button>
+            <div className={`flex-container__flex-box ${parentClasses}`} style={boxStyles} ref={flexBox}>
+                <button className="flex-container__horizontal-drag" onMouseDown={startResize}>🖐</button>
                 {flexItems}
             </div>
         </div>

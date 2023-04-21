@@ -190,8 +190,9 @@ body {
 
   &__horizontal-drag {
     position: absolute;
-    right: 0;
-    bottom: 0;
+    border-radius: 10px;
+    right: 5px;
+    bottom: 5px;
     cursor: grab;
 
     &:active {
@@ -284,14 +285,18 @@ body {
       justify-content: flex-end;
   
       .dropdown-component__dropdown {
-    
+        margin-top: 10px;
+        
         span {
           display: block;
+          letter-spacing: 2px;
+          font-weight: 300;
           font-size: 18px;
         }
       
         select {
           display: block;
+          border-radius: 5px;
           font-size: 16px;
           margin-top: 10px;
           padding: 5px;
