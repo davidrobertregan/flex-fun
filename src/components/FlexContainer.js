@@ -1,11 +1,34 @@
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import FlexItem from "./FlexItem"
 
 function FlexContainer( { parentClassesObj } ) {
     const [images, setImages] = useState([])
-    let parentClasses
+    const [boxStyles, setBoxStyles] = useState({
+        width: 'auto',
+        height: 'auto'
+    })
+    const flexBox = useRef()
+    const [drag, setDrag] = useState({
+        active: false,
+        x: '',
+        y: ''
+    })
 
+    // useEffect(() => {
+    //     setDim({...dim, w: flexBox.current.clientWidth, h: flexBox.current.clientHeight})
+    // }, [])
+    
+    // future option to grab images from a different breed, or refetch images
+    // future option to delete half of the images
+    const getData = () => {
+        fetch("https://dog.ceo/api/breed/bulldog/images/random/18")
+        .then(resp => resp.json())
+        .then(data => setImages(data.message))
+    }
+    useEffect(getData, [])
+
+    let parentClasses
     const createParentClassString = () => {
         const classesArr = [] 
         for(let key in parentClassesObj) {
@@ -16,25 +39,42 @@ function FlexContainer( { parentClassesObj } ) {
         let classesStr = classesArr.toString()
         parentClasses = classesStr.replaceAll(',', ' ')
     }
-
     createParentClassString()
 
-    // future option to grab images from a different breed, or refetch images
-    // future option to delete half of the images
-    const getData = () => {
-        fetch("https://dog.ceo/api/breed/bulldog/images/random/18")
-        .then(resp => resp.json())
-        .then(data => setImages(data.message))
+    const handleMouseDown = (e) => {
+        setDrag({
+                ...drag,
+                active: true,
+                x: e.clientX,
+                y: e.clientY
+            }
+        )
     }
 
-    useEffect(getData, [])
+    const handleMouseMove = (e) => {
+        const { active, x, y } = drag
+        if (active) {
+            const xDiff = Math.abs(x - e.clientX);
+            const yDiff = Math.abs(y - e.clientY);
+            const newW = x > e.clientX ? flexBox.current.clientWidth - xDiff : flexBox.current.clientWidth + xDiff
+            const newH = y > e.clientY ? flexBox.current.clientHeight - yDiff : flexBox.current.clientHeight + yDiff
+
+            setDrag({...drag, x: e.clientX, y: e.clientY})
+            setBoxStyles({...boxStyles, width: newW, height: newH})
+        }
+    }
+
+    const handleMouseUp = () => {
+        setDrag({...drag, active: false})
+    }
 
     const flexItems = images.map((i, idx) => <FlexItem key={i} image={i} idx={idx}></FlexItem>)
 
     return(
-        <div className="flex-container grid-item">
+        <div className="flex-container grid-item" onMouseUp={handleMouseUp}>
             <h1>Flex Container</h1>
-            <div className={`flex-container__flex-box ${parentClasses}`}>
+            <div className={`flex-container__flex-box ${parentClasses}`} onMouseMove={handleMouseMove} style={boxStyles} ref={flexBox}>
+                <button className="flex-container__horizontal-drag" onMouseDown={handleMouseDown}>🖐</button>
                 {flexItems}
             </div>
         </div>

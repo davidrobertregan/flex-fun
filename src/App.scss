@@ -75,10 +75,10 @@ body {
   &__flex-box {
     border-radius: 10px;
     background-color: lightgrey;
+    position: relative;
     display: flex;
-    flex-grow: 1;
-    overflow: scroll;
-
+    overflow: scroll; 
+    
     &.flex-direction {
       &--row {
         flex-direction: row;
@@ -186,6 +186,17 @@ body {
     }
 
     /* no gap property yet...?*/
+  }
+
+  &__horizontal-drag {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+    }
   }
 
   &__flex-item {
