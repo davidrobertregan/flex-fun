@@ -13,17 +13,14 @@ function App() {
     alignContent: ['flex-start', 'flex-end', 'center', 'stretch', 'space-between', 'space-around']
   }
 
-  const defaultParentValues = () => {
-    let defaultClasses = {}
+  const [parentValues, setParentValues] = useState(() => {
+    let initialValues = {}
     for(let prop in parentProperties) {
-      defaultClasses[prop] = parentProperties[prop][0]
+      initialValues[prop] = parentProperties[prop][0]
     }
     console.log('defautl func firing')
-    return defaultClasses
-  }
-
-  const [parentValues, setParentValues] = useState(defaultParentValues())
-
+    return initialValues
+  })
 
   const onUpdateProperty = (e) => {
     setParentValues({...parentValues, [e.target.name]: e.target.value})
