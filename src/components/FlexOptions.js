@@ -2,20 +2,11 @@ import Dropdown from "./Dropdown"
 // create series of dropdowns for flex options
 // update parent class obj state on change of drop down to value via callback
 
-function FlexOptions({ onUpdateProperty }) {
-
-    const parentOptions = {
-        flexDirection: ['row', 'row-reverse', 'column', 'column-reverse'],
-        flexWrap: ['wrap', 'nowrap', 'wrap-reverse'],
-        justifyContent: ['flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly'],
-        alignItems: ['flex-start', 'flex-end', 'center', 'stretch', 'baseline'],
-        alignContent: ['flex-start', 'flex-end', 'center', 'stretch', 'space-between', 'space-around']
-    }
-
+function FlexOptions({ onUpdateProperty, parentProperties }) {
     let dropdownComponents = []
 
-    for(let prop in parentOptions){
-        dropdownComponents.push(<Dropdown property={prop} options={parentOptions[prop]} onUpdateProperty={onUpdateProperty}/>)
+    for(let prop in parentProperties){
+        dropdownComponents.push(<Dropdown property={prop} options={parentProperties[prop]} onUpdateProperty={onUpdateProperty}/>)
     }
 
     return(

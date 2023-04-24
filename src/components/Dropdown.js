@@ -1,5 +1,3 @@
-
-
 function Dropdown({ property, options, onUpdateProperty }) {
 
     const titleCaseProperty = () => {

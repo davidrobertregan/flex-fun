@@ -2,22 +2,8 @@
 import { useState, useEffect } from "react"
 import FlexItem from "./FlexItem"
 
-function FlexContainer( { parentClassesObj } ) {
+function FlexContainer( { parentValues } ) {
     const [images, setImages] = useState([])
-    let parentClasses
-
-    const createParentClassString = () => {
-        const classesArr = [] 
-        for(let key in parentClassesObj) {
-            const kebabKey = key.split('').map((l, idx) => l.toUpperCase() === l ? `${idx !== 0 ? '-' : ''}` + l.toLowerCase(): l).join('')
-            classesArr.push(`${kebabKey}--${parentClassesObj[key]}`)
-        }
-
-        let classesStr = classesArr.toString()
-        parentClasses = classesStr.replaceAll(',', ' ')
-    }
-
-    createParentClassString()
 
     // future option to grab images from a different breed, or refetch images
     // future option to delete half of the images
@@ -28,6 +14,20 @@ function FlexContainer( { parentClassesObj } ) {
     }
 
     useEffect(getData, [])
+    
+    let parentClasses
+    const createParentClassString = () => {
+        const classesArr = [] 
+        for(let key in parentValues) {
+            const kebabKey = key.split('').map((l, idx) => l.toUpperCase() === l ? `${idx !== 0 ? '-' : ''}` + l.toLowerCase(): l).join('')
+            classesArr.push(`${kebabKey}--${parentValues[key]}`)
+        }
+
+        let classesStr = classesArr.toString()
+        parentClasses = classesStr.replaceAll(',', ' ')
+    }
+
+    createParentClassString()
 
     const flexItems = images.map((i, idx) => <FlexItem key={i} image={i} idx={idx}></FlexItem>)
 
