@@ -18,7 +18,6 @@ function App() {
     for(let prop in parentProperties) {
       initialValues[prop] = parentProperties[prop][0]
     }
-    console.log('defautl func firing')
     return initialValues
   })
 

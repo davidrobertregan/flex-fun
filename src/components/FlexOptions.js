@@ -7,7 +7,7 @@ function FlexOptions({ onUpdateProperty, parentProperties }) {
     const createDropdowns = () => {
         let dropdownComponents = []
         for(let property in parentProperties){
-            dropdownComponents.push(<Dropdown property={property} options={parentProperties[property]} onUpdateProperty={onUpdateProperty}/>)
+            dropdownComponents.push(<Dropdown key={property} property={property} options={parentProperties[property]} onUpdateProperty={onUpdateProperty}/>)
         }
         return dropdownComponents
     }
