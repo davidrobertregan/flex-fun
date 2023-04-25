@@ -1,6 +1,6 @@
 import Dropdown from "./Dropdown";
-// create series of dropdowns for flex options
-// update parent class obj state on change of drop down to value via callback
+/* create dropdowns for each flex option */
+/* update parent class obj state on change of drop down to value via callback */
 
 function FlexOptions({ onUpdateProperty, parentProperties }) {
 

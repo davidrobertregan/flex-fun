@@ -13,7 +13,7 @@ function App() {
     alignContent: ['flex-start', 'flex-end', 'center', 'stretch', 'space-between', 'space-around']
   }
 
-  const [parentValues, setParentValues] = useState(() => {
+  const [parentValues, setParentValues] = useState(() => { /* duplicate parentProperties object with value being first item in array */
     let initialValues = {}
     for(let prop in parentProperties) {
       initialValues[prop] = parentProperties[prop][0]
