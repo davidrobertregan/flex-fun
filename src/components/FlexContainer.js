@@ -32,7 +32,7 @@ function FlexContainer( { parentValues } ) {
     return(
         <div className="flex-container grid-item">
             <h1>Flex Container</h1>
-            <div className={`flex-container__flex-box ${createParentClassString()}`}>
+            <div className={`flex-container__flex-parent ${createParentClassString()}`}>
                 {flexItems}
             </div>
         </div>
